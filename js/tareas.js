@@ -1,8 +1,4 @@
-let tareas = [
-    { id: 1, texto: "Repasar HTML y CSS", completada: true },
-    { id: 2, texto: "Practicar funciones en JavaScript", completada: false },
-    { id: 3, texto: "Subir el proyecto a GitHub", completada: false }
-];
+let tareas = [];
 
 // Forma de una tarea: { id: number, texto: string, completada: boolean }
 

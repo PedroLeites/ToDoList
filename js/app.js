@@ -2,6 +2,7 @@ const listaTareas = document.querySelector("#lista-tareas");
 const formulario = document.querySelector("#formulario-tarea");
 const inputTexto = document.querySelector("#input-tarea");
 
+tareas = cargarTareas();
 renderizarTareas();
 
 function renderizarTareas() {
@@ -20,9 +21,10 @@ function renderizarTareas() {
     checkbox.checked = tarea.completada;
     checkbox.addEventListener("change", () => {
       alternarCompletada(tarea.id); // Modifica el array (función de tareas.js)
+      guardarTareas(tareas); // Persistimos el cambio
       renderizarTareas();           // Vuelve a dibujar la lista completa
     });
-    
+
     const span = document.createElement("span");
     span.textContent = tarea.texto;
 
@@ -30,6 +32,7 @@ function renderizarTareas() {
     botonEliminar.textContent = "Eliminar";
     botonEliminar.addEventListener("click", () => {
       eliminarTarea(tarea.id); // Modifica el array (función de tareas.js)
+      guardarTareas(tareas) // Persistimos el cambio
       renderizarTareas();      // Vuelve a dibujar la lista completa
     });
 
@@ -49,6 +52,7 @@ formulario.addEventListener("submit", (evento) => {
     }
 
     agregarTarea(texto);   // Modifica el array (función de tareas.js)
+    guardarTareas(tareas) // Persistimos tareas
     renderizarTareas();    // Vuelve a dibujar la lista completa
     inputTexto.value = ""; // Limpiamos el input para la próxima tarea
 });
