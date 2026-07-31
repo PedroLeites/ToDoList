@@ -18,8 +18,11 @@ function renderizarTareas() {
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
     checkbox.checked = tarea.completada;
-    // Todavía sin addEventListener: por ahora el checkbox se ve, pero tildarlo no hace nada.
-
+    checkbox.addEventListener("change", () => {
+      alternarCompletada(tarea.id); // Modifica el array (función de tareas.js)
+      renderizarTareas();           // Vuelve a dibujar la lista completa
+    });
+    
     const span = document.createElement("span");
     span.textContent = tarea.texto;
 
