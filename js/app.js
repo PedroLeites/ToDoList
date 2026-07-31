@@ -1,4 +1,7 @@
 const listaTareas = document.querySelector("#lista-tareas");
+const formulario = document.querySelector("#formulario-tarea");
+const inputTexto = document.querySelector("#input-tarea");
+
 renderizarTareas();
 
 function renderizarTareas() {
@@ -22,7 +25,6 @@ function renderizarTareas() {
 
     const botonEliminar = document.createElement("button");
     botonEliminar.textContent = "Eliminar";
-    // Todavía sin addEventListener: por ahora el botón se ve, pero no elimina nada.
 
     li.appendChild(checkbox);
     li.appendChild(span);
@@ -30,3 +32,16 @@ function renderizarTareas() {
     listaTareas.appendChild(li);
   });
 }
+
+formulario.addEventListener("submit", (evento) => {
+    evento.preventDefault(); // Evita que la página se recargue al enviar el formulario
+    const texto = inputTexto.value.trim();
+    
+    if (texto === "") {
+        return; // Todavía sin validación visual, solo cortamos la ejecución
+    }
+
+    agregarTarea(texto);   // Modifica el array (función de tareas.js)
+    renderizarTareas();    // Vuelve a dibujar la lista completa
+    inputTexto.value = ""; // Limpiamos el input para la próxima tarea
+});
