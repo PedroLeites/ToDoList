@@ -28,29 +28,15 @@ Página web simple para gestionar una lista de tareas pendientes. Permite agrega
 - Git y GitHub (control de versiones)
 
 ## Estructura del proyecto
-todo-list/
-
-│
-
-├── index.html
-
-├── README.md
-
-│
-
-├── css/
-
-│ └── estilos.css
-
-│
-
-└── js/
-
- ├── app.js
-
- ├── tareas.js
-
- └── almacenamiento.js
+- **todo-list/**
+  - `index.html`
+  - `README.md`
+  - **css/**
+    - `estilos.css`
+  - **js/**
+    - `app.js`
+    - `tareas.js`
+    - `almacenamiento.js`
 
 - **`almacenamiento.js`**: funciones para guardar y leer datos en LocalStorage.
 - **`tareas.js`**: lógica del array de tareas (agregar, eliminar, completar).
