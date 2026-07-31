@@ -66,4 +66,5 @@ formulario.addEventListener("submit", (evento) => {
     guardarTareas(tareas) // Persistimos tareas
     renderizarTareas();    // Vuelve a dibujar la lista completa
     inputTexto.value = ""; // Limpiamos el input para la próxima tarea
+    inputTexto.focus();
 });
