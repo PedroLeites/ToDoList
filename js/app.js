@@ -1,6 +1,7 @@
-const listaTareas = document.querySelector("#lista-tareas");
 const formulario = document.querySelector("#formulario-tarea");
 const inputTexto = document.querySelector("#input-tarea");
+const listaTareas = document.querySelector("#lista-tareas");
+const contadorTareas = document.querySelector("#contador-tareas");
 
 tareas = cargarTareas();
 renderizarTareas();
@@ -41,6 +42,16 @@ function renderizarTareas() {
     li.appendChild(botonEliminar);
     listaTareas.appendChild(li);
   });
+  actualizarContador();
+}
+
+function actualizarContador() {
+    const pendientes = contarPendientes();    
+    if (pendientes === 1) {
+        contadorTareas.textContent = "Te queda 1 tarea pendiente";
+    } else {
+        contadorTareas.textContent = "Te quedan " + pendientes + " tareas pendientes";
+    }
 }
 
 formulario.addEventListener("submit", (evento) => {
