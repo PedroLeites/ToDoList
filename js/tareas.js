@@ -1,3 +1,8 @@
+/* 
+    tareas.js
+    Responsabilidad única: manejar el array de tareas en memoria.
+    No conoce el DOM ni LocalStorage.
+*/
 let tareas = [];
 
 // Forma de una tarea: { id: number, texto: string, completada: boolean }

@@ -1,3 +1,8 @@
+/* 
+    app.js
+    Responsabilidades: conectar el DOM con la lógica de tareas.js
+    y decidir cuándo persistir en LocalStorage.
+*/
 const formulario = document.querySelector("#formulario-tarea");
 const inputTexto = document.querySelector("#input-tarea");
 const listaTareas = document.querySelector("#lista-tareas");
