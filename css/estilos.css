@@ -58,3 +58,46 @@ h1 {
 #formulario-tarea button:hover {
   background-color: #2563eb;
 }
+
+/* Lista de tareas */
+#lista-tareas {
+  list-style: none;
+}
+
+.tarea {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.tarea span {
+  flex: 1;
+  word-break: break-word;
+}
+
+.tarea.completada span {
+  text-decoration: line-through;
+  color: #999;
+}
+
+.tarea button {
+  border: none;
+  background-color: #ef4444;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.tarea button:hover {
+  background-color: #dc2626;
+}
+
+.tarea input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
