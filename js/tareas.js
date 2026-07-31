@@ -3,28 +3,28 @@ let tareas = [];
 // Forma de una tarea: { id: number, texto: string, completada: boolean }
 
 function agregarTarea(texto) {
-  const nuevaTarea = {
-    id: Date.now(), // Usamos la fecha y hora actual en milisegundos como id único.
-    texto: texto,
-    completada: false
-  };
+    const nuevaTarea = {
+        id: Date.now(), // Usamos la fecha y hora actual en milisegundos como id único.
+        texto: texto,
+        completada: false
+    };
 
-  tareas.push(nuevaTarea);
-  return nuevaTarea;
+    tareas.push(nuevaTarea);
+    return nuevaTarea;
 }
 
 function eliminarTarea(id) {
-  tareas = tareas.filter(tarea => tarea.id !== id);
+    tareas = tareas.filter(tarea => tarea.id !== id);
 }
 
 function alternarCompletada(id) {
-  const tarea = tareas.find(tarea => tarea.id === id);
+    const tarea = tareas.find(tarea => tarea.id === id);
 
-  if (tarea) {
-    tarea.completada = !tarea.completada;
-  }
+    if (tarea) {
+        tarea.completada = !tarea.completada;
+    }
 }
 
 function contarPendientes() {
-  return tareas.filter(tarea => !tarea.completada).length;
+    return tareas.filter(tarea => !tarea.completada).length;
 }

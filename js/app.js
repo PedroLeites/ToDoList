@@ -7,42 +7,42 @@ tareas = cargarTareas();
 renderizarTareas();
 
 function renderizarTareas() {
-  listaTareas.innerHTML = ""; // Limpiamos la lista antes de dibujarla
+    listaTareas.innerHTML = ""; // Limpiamos la lista antes de dibujarla
 
-  tareas.forEach(tarea => {
-    const li = document.createElement("li");
-    if (tarea.completada) {
-        li.className = "tarea completada";
-    } else {
-        li.className = "tarea";
-    }
+    tareas.forEach(tarea => {
+        const li = document.createElement("li");
+        if (tarea.completada) {
+            li.className = "tarea completada";
+        } else {
+            li.className = "tarea";
+        }
 
-    const checkbox = document.createElement("input");
-    checkbox.type = "checkbox";
-    checkbox.checked = tarea.completada;
-    checkbox.addEventListener("change", () => {
-      alternarCompletada(tarea.id); // Modifica el array (función de tareas.js)
-      guardarTareas(tareas); // Persistimos el cambio
-      renderizarTareas();           // Vuelve a dibujar la lista completa
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.checked = tarea.completada;
+        checkbox.addEventListener("change", () => {
+        alternarCompletada(tarea.id); // Modifica el array (función de tareas.js)
+        guardarTareas(tareas); // Persistimos el cambio
+        renderizarTareas();           // Vuelve a dibujar la lista completa
+        });
+    
+        const span = document.createElement("span");
+        span.textContent = tarea.texto;
+
+        const botonEliminar = document.createElement("button");
+        botonEliminar.textContent = "Eliminar";
+        botonEliminar.addEventListener("click", () => {
+            eliminarTarea(tarea.id); // Modifica el array (función de tareas.js)
+            guardarTareas(tareas) // Persistimos el cambio
+            renderizarTareas();      // Vuelve a dibujar la lista completa
+        });
+
+        li.appendChild(checkbox);
+        li.appendChild(span);
+        li.appendChild(botonEliminar);
+        listaTareas.appendChild(li);
     });
-
-    const span = document.createElement("span");
-    span.textContent = tarea.texto;
-
-    const botonEliminar = document.createElement("button");
-    botonEliminar.textContent = "Eliminar";
-    botonEliminar.addEventListener("click", () => {
-      eliminarTarea(tarea.id); // Modifica el array (función de tareas.js)
-      guardarTareas(tareas) // Persistimos el cambio
-      renderizarTareas();      // Vuelve a dibujar la lista completa
-    });
-
-    li.appendChild(checkbox);
-    li.appendChild(span);
-    li.appendChild(botonEliminar);
-    listaTareas.appendChild(li);
-  });
-  actualizarContador();
+    actualizarContador();
 }
 
 function actualizarContador() {
