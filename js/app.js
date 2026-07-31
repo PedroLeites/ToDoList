@@ -48,7 +48,7 @@ formulario.addEventListener("submit", (evento) => {
     const texto = inputTexto.value.trim();
     
     if (texto === "") {
-        return; // Todavía sin validación visual, solo cortamos la ejecución
+        return; //Validación para no tener tareas "vacías"
     }
 
     agregarTarea(texto);   // Modifica el array (función de tareas.js)
