@@ -25,6 +25,10 @@ function renderizarTareas() {
 
     const botonEliminar = document.createElement("button");
     botonEliminar.textContent = "Eliminar";
+    botonEliminar.addEventListener("click", () => {
+      eliminarTarea(tarea.id); // Modifica el array (función de tareas.js)
+      renderizarTareas();      // Vuelve a dibujar la lista completa
+    });
 
     li.appendChild(checkbox);
     li.appendChild(span);
